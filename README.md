@@ -13,4 +13,5 @@ Hệ thống gồm 2 dịch vụ chính:
    git clone https://github.com/huykiemrong389/LTPT_BT3.git
    cd LTPT_BT3
 2. Chạy Docker Compose:
+   ```bash
    docker-compose up --build
