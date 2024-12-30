@@ -15,3 +15,19 @@ Hệ thống gồm 2 dịch vụ chính:
 2. Chạy Docker Compose:
    ```bash
    docker-compose up --build
+3. Chạy bằng Kubernetes
+Đẩy Docker image lên DockerHub.
+
+Deploy các dịch vụ:
+
+bash
+Copy code
+kubectl apply -f rabbitmq-deployment.yaml
+kubectl apply -f inventory-service-deployment.yaml
+kubectl apply -f order-service-deployment.yaml
+Truy cập các dịch vụ qua port-forward:
+
+bash
+Copy code
+kubectl port-forward svc/order-service 5000:5000
+kubectl port-forward svc/inventory-service 5001:5001
