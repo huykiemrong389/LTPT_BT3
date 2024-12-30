@@ -27,7 +27,7 @@ services:
     networks:
       - app_network
     ports:
-      - "5000:5000"  # Ánh xạ cổng Order Service
+      - "5002:5000"  # Ánh xạ cổng Order Service
 
 networks:
   app_network:
