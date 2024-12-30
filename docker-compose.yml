@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"  # RabbitMQ Management UI
+      - "5672:5672"    # RabbitMQ Protocol
+    networks:
+      - app_network
+
+  inventory_service:
+    build:
+      context: ./inventory_service
+    depends_on:
+      - rabbitmq
+    networks:
+      - app_network
+    ports:
+      - "5001:5001"  # Ánh xạ cổng Inventory Service
+
+  order_service:
+    build:
+      context: ./order_service
+    depends_on:
+      - rabbitmq
+    networks:
+      - app_network
+    ports:
+      - "5000:5000"  # Ánh xạ cổng Order Service
+
+networks:
+  app_network:
+    driver: bridge
