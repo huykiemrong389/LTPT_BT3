@@ -168,27 +168,27 @@ Hệ thống quản lý đơn hàng và tồn kho bao gồm hai dịch vụ chí
 
 Tính năng của ứng dụng demo
 
-Hiển thị danh sách sản phẩm trong kho (Inventory).
-Xem danh sách tất cả sản phẩm và số lượng tồn kho hiện có.
-Tạo đơn hàng (Create Order).
-Gửi yêu cầu tạo đơn hàng với Product ID và Quantity.
-Cập nhật tự động số lượng tồn kho trong Inventory Service sau khi đơn hàng được xử lý.
-Thêm/Cập nhật sản phẩm (Add/Update Product).
-Thêm sản phẩm mới vào kho hoặc cập nhật số lượng sản phẩm hiện có.
-Cập nhật số lượng sản phẩm trong kho.
-Thay đổi số lượng sản phẩm trực tiếp từ danh sách Inventory.
+- Hiển thị danh sách sản phẩm trong kho (Inventory).
+- Xem danh sách tất cả sản phẩm và số lượng tồn kho hiện có.
+- Tạo đơn hàng (Create Order).
+- Gửi yêu cầu tạo đơn hàng với Product ID và Quantity.
+- Cập nhật tự động số lượng tồn kho trong Inventory Service sau khi đơn hàng được xử lý.
+- Thêm/Cập nhật sản phẩm (Add/Update Product).
+- Thêm sản phẩm mới vào kho hoặc cập nhật số lượng sản phẩm hiện có.
+- Cập nhật số lượng sản phẩm trong kho.
+- Thay đổi số lượng sản phẩm trực tiếp từ danh sách Inventory.
 Hướng dẫn chạy ứng dụng demo
 
 Khởi động các dịch vụ backend (Order Service, Inventory Service, RabbitMQ):
 Sử dụng Docker Compose:
-bash
-Copy code
+```bash
 docker-compose up --build
+```
 Chạy ứng dụng web:
 Di chuyển tới thư mục chứa file app.py và chạy:
-bash
-Copy code
+```bash
 python app.py
+```
 Ứng dụng sẽ chạy trên cổng 8000.
 Truy cập giao diện web:
 Mở trình duyệt và truy cập: http://localhost:8000.
