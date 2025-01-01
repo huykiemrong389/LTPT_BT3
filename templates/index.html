@@ -6,10 +6,49 @@
     <title>Order Inventory Demo</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        .alert-container {
+            margin-top: 20px;
+        }
+
+        .alert {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-light">
     <div class="container py-5">
         <h1 class="text-center mb-4">Order & Inventory Management</h1>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert-container">
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
 
         <!-- Inventory Table -->
         <div class="card shadow-sm mb-4">
@@ -59,7 +98,7 @@
                         <input type="number" name="quantity" class="form-control" required>
                     </div>
                     <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-success">Create Order</button>
+                        <button type="submit" class="btn btn-success" onclick="this.innerHTML='<span class=\'spinner-border spinner-border-sm\'></span> Processing...'">Create Order</button>
                     </div>
                 </form>
             </div>
@@ -81,11 +120,25 @@
                         <input type="number" name="quantity" class="form-control" required>
                     </div>
                     <div class="col-12 text-end">
-                        <button type="submit" class="btn btn-info">Add/Update Product</button>
+                        <button type="submit" class="btn btn-info" onclick="this.innerHTML='<span class=\'spinner-border spinner-border-sm\'></span> Processing...'">Add/Update Product</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Tự động đóng thông báo sau 5 giây
+        setTimeout(() => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.classList.add('fade');
+                setTimeout(() => alert.remove(), 500); // Chờ hiệu ứng fade out
+            });
+        }, 5000);
+    </script>
 </body>
 </html>
