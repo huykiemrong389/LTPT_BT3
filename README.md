@@ -177,6 +177,8 @@ Tính năng của ứng dụng demo
 - Thêm sản phẩm mới vào kho hoặc cập nhật số lượng sản phẩm hiện có.
 - Cập nhật số lượng sản phẩm trong kho.
 - Thay đổi số lượng sản phẩm trực tiếp từ danh sách Inventory.
+  <img width="1397" alt="image" src="https://github.com/user-attachments/assets/89c7bc3a-6b05-423d-90e3-90929fc6710b" />
+
 Hướng dẫn chạy ứng dụng demo
 
 Khởi động các dịch vụ backend (Order Service, Inventory Service, RabbitMQ):
